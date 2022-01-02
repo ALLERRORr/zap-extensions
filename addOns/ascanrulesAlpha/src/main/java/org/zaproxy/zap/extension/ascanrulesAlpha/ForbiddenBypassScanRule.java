@@ -98,6 +98,7 @@ public class ForbiddenBypassScanRule extends AbstractAppPlugin {
             "/%20" + path + "%20/",
             path + "..;/",
             path + "?",
+            path + "//;//"
             path + "??",
             "/" + path + "//",
             path + "/",
@@ -123,6 +124,9 @@ public class ForbiddenBypassScanRule extends AbstractAppPlugin {
             "X-Rewrite-URL: " + path,
             "X-Original-URL: " + path,
             "Referer: " + path,
+            "Origin: " + path,
+            "X-ProxyUser-Ip: 127.0.0.1"
+            "X-Cluster-Client-IP: 127.0.0.1",
             "X-Custom-IP-Authorization: 127.0.0.1",
             "X-Originating-IP: 127.0.0.1",
             "X-Forwarded-For: 127.0.0.1",
@@ -130,6 +134,7 @@ public class ForbiddenBypassScanRule extends AbstractAppPlugin {
             "X-Client-IP: 127.0.0.1",
             "X-Host: 127.0.0.1",
             "X-Forwarded-Host: 127.0.0.1"
+            "X-HTTP-Method-Override: PUT" // methods PUT,POST,GET,HEAD,TRACE    
         };
 
         for (String header : headerPayloads) {
